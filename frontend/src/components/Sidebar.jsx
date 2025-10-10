@@ -8,9 +8,6 @@ const Sidebar = () => {
     <div className="w-64 min-h-screen bg-blue-900 text-white flex flex-col p-5">
       <h1 className="text-2xl font-bold mb-8">E-Learn</h1>
       <nav className="flex flex-col gap-6">
-        <a href="/dashboard" className="flex items-center gap-3 hover:text-gray-300">
-          <Home size={20} /> Dashboard
-        </a>
         {role === 'teacher' ? (
           <>
             <a href="/teacher/create-course" className="flex items-center gap-3 hover:text-gray-300">
@@ -21,13 +18,15 @@ const Sidebar = () => {
             </a>
           </>
         ) : (
-          <a href="/courses" className="flex items-center gap-3 hover:text-gray-300">
-            <Layers size={20} /> Courses
-          </a>
+          <>
+            <a href="/dashboard" className="flex items-center gap-3 hover:text-gray-300">
+              <Home size={20} /> Dashboard
+            </a>
+            <a href="/courses" className="flex items-center gap-3 hover:text-gray-300">
+              <Layers size={20} /> Courses
+            </a>
+          </>
         )}
-        <a href="/videos" className="flex items-center gap-3 hover:text-gray-300">
-          <Video size={20} /> Videos
-        </a>
       </nav>
     </div>
   );

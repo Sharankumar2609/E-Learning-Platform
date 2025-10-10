@@ -18,6 +18,9 @@ const videoRoutes = require("./routes/videos");
 const teacherRoutes = require("./routes/teachers");
 const noteRoutes = require("./routes/notes");
 const blobRoutes = require("./routes/blob");
+const questionRoutes = require("./routes/questions");
+const answerRoutes = require("./routes/answers");
+const userQuizRoutes = require("./routes/UserQuiz");
 
 app.use("/api/students", studentRoutes);
 app.use("/api/courses", subjectRoutes);
@@ -26,6 +29,9 @@ app.use("/api/videos", videoRoutes);
 app.use("/api/teachers", teacherRoutes);
 app.use("/api/notes", noteRoutes);
 app.use("/api/blob", blobRoutes);
+app.use("/api/questions", questionRoutes);
+app.use("/api/answers", answerRoutes);
+app.use("/api/user-quizzes", userQuizRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

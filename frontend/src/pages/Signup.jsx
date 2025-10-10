@@ -38,15 +38,15 @@ export default function Signup() {
         <h1 className="text-xl font-semibold">Create your account</h1>
         {error && <div className="text-sm text-red-600">{error}</div>}
         <div className="flex gap-3">
-          <button type="button" className={`px-3 py-2 rounded ${role==='student'?'bg-blue-600 text-white':'bg-gray-100'}`} onClick={()=>setRole('student')}>Student</button>
-          <button type="button" className={`px-3 py-2 rounded ${role==='teacher'?'bg-blue-600 text-white':'bg-gray-100'}`} onClick={()=>setRole('teacher')}>Teacher</button>
+          <button type="button" className={`px-3 py-2 rounded cursor-pointer ${role==='student'?'bg-blue-600 text-white':'bg-gray-100'}`} onClick={()=>setRole('student')}>Student</button>
+          <button type="button" className={`px-3 py-2 rounded cursor-pointer ${role==='teacher'?'bg-blue-600 text-white':'bg-gray-100'}`} onClick={()=>setRole('teacher')}>Teacher</button>
         </div>
         <input value={name} onChange={e=>setName(e.target.value)} placeholder="Name" className="w-full border rounded px-3 py-2" required />
         <input type="email" value={email} onChange={e=>setEmail(e.target.value)} placeholder="Email" className="w-full border rounded px-3 py-2" required />
         <input type="password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="Password" className="w-full border rounded px-3 py-2" required />
         <input value={photo} onChange={e=>setPhoto(e.target.value)} placeholder="Photo URL (optional)" className="w-full border rounded px-3 py-2" />
-        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded py-2">Sign up</button>
-        <div className="text-sm text-center">Already have an account? <a className="text-blue-600" href="/login">Log in</a></div>
+        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded py-2 cursor-pointer">Sign up</button>
+        <div className="text-sm text-center">Already have an account? <a className="text-blue-600 cursor-pointer hover:underline" href="/login">Log in</a></div>
       </form>
       </div>
     </div>

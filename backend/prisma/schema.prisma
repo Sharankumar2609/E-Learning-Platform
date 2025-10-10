@@ -97,9 +97,12 @@ model UserQuiz {
   quizId     Int
   status     String    @default("Pending") // Pending / Completed
   score      Int       @default(0)
+  answers    String?   // JSON string of student answers
+  timeSpent  Int?      // seconds
   startedAt  DateTime?
   finishedAt DateTime?
-  timeTaken  Int?      // minutes
+  timeTaken  Int?      // minutes (legacy field)
+  createdAt  DateTime  @default(now())
   @@unique([studentId, quizId])
 }
 

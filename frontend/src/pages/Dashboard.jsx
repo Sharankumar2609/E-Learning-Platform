@@ -55,7 +55,7 @@ const Dashboard = () => {
             <h3 className="font-semibold mb-4">Your Courses</h3>
             <div className="grid grid-cols-2 gap-4">
               {courses.map(c => (
-                <a key={c.id} href={`/courses/${c.id}`} className="p-4 bg-white shadow rounded-lg flex items-center gap-3">
+                <a key={c.id} href={`/courses/${c.id}`} className="p-4 bg-white shadow rounded-lg flex items-center gap-3 hover:shadow-lg transition cursor-pointer">
                   <div className="text-blue-600 text-2xl">🎓</div>
                   <p className="font-semibold">{c.name}</p>
                 </a>

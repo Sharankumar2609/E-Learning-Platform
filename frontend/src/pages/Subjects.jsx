@@ -94,7 +94,7 @@ const Subjects = () => {
                   className={`mt-auto py-2 px-4 rounded-xl font-medium text-white transition ${
                     subject.enrolled
                       ? "bg-green-500 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-700"
+                      : "bg-blue-600 hover:bg-blue-700 cursor-pointer"
                   }`}
                 >
                   {subject.enrolled ? "Enrolled ✓" : "Enroll"}

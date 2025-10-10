@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import TeacherCreateCourse from "./pages/TeacherCreateCourse";
 import TeacherCourses from "./pages/TeacherCourses";
 import TeacherCourseManage from "./pages/TeacherCourseManage";
+import QuizTaking from "./pages/QuizTaking";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/teacher/create-course" element={<TeacherCreateCourse />} />
         <Route path="/teacher/courses" element={<TeacherCourses />} />
         <Route path="/teacher/courses/:id" element={<TeacherCourseManage />} />
+        <Route path="/quiz/:quizId" element={<QuizTaking />} />
       </Routes>
     </BrowserRouter>
   );

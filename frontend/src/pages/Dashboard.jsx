@@ -4,21 +4,35 @@ import Card from "../components/Card";
 import SubjectCard from "../components/SubjectCard";
 import QuizCard from "../components/QuizCard";
 import { BookOpen, ClipboardList, Video } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
+  const [stats, setStats] = useState({ numCourses: 0, totalVideos: 0, completedQuizzes: 0, pendingQuizzes: 0 });
+  const [courses, setCourses] = useState([]);
+  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) return;
+    fetch(`${base}/api/students/me/metrics`, { headers: { Authorization: `Bearer ${token}` } })
+      .then(r => r.json()).then(setStats).catch(()=>{});
+    fetch(`${base}/api/students/me/courses`, { headers: { Authorization: `Bearer ${token}` } })
+      .then(r => r.json()).then(setCourses).catch(()=>{});
+  }, []);
+
   return (
     <div className="flex">
       <Sidebar />
       <div className="flex-1 bg-gray-50">
         <Navbar />
         <div className="p-6">
-          <h2 className="text-2xl font-bold mb-6">Welcome back, John!</h2>
+          <h2 className="text-2xl font-bold mb-6">Welcome back!</h2>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mb-8">
-            <Card title="Subjects" value="3" icon={<BookOpen />} />
-            <Card title="Quizzes" value="5" icon={<ClipboardList />} />
-            <Card title="Videos" value="2" icon={<Video />} />
+            <Card title="Courses" value={String(stats.numCourses)} icon={<BookOpen />} />
+            <Card title="Quizzes Completed" value={String(stats.completedQuizzes)} icon={<ClipboardList />} />
+            <Card title="Videos" value={String(stats.totalVideos)} icon={<Video />} />
           </div>
 
           {/* Recent + Pending */}
@@ -38,10 +52,14 @@ const Dashboard = () => {
 
           {/* Subjects */}
           <div>
-            <h3 className="font-semibold mb-4">Your Subjects</h3>
+            <h3 className="font-semibold mb-4">Your Courses</h3>
             <div className="grid grid-cols-2 gap-4">
-              <SubjectCard name="Biology" icon="🌿" />
-              <SubjectCard name="Mathematics" icon="π" />
+              {courses.map(c => (
+                <a key={c.id} href={`/courses/${c.id}`} className="p-4 bg-white shadow rounded-lg flex items-center gap-3">
+                  <div className="text-blue-600 text-2xl">🎓</div>
+                  <p className="font-semibold">{c.name}</p>
+                </a>
+              ))}
             </div>
           </div>
         </div>

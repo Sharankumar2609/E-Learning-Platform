@@ -6,7 +6,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const base = import.meta.env.VITE_API_URL || "https://backend.bluebeach-698d2239.centralindia.azurecontainerapps.io";
 
   const onSubmit = async (e) => {
     e.preventDefault();

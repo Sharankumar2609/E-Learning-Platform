@@ -12,6 +12,8 @@ import TeacherCourseManage from "./pages/TeacherCourseManage";
 import QuizTaking from "./pages/QuizTaking";
 
 function App() {
+  const base = import.meta.env.VITE_API_URL
+  console.log("API Base URL:", base);
   return (
     <BrowserRouter>
       <Routes>

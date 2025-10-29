@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 const Dashboard = () => {
   const [stats, setStats] = useState({ numCourses: 0, totalVideos: 0, completedQuizzes: 0, pendingQuizzes: 0 });
   const [courses, setCourses] = useState([]);
-  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const base = import.meta.env.VITE_API_URL || "https://backend.bluebeach-698d2239.centralindia.azurecontainerapps.io";
 
   useEffect(() => {
     const token = localStorage.getItem("token");

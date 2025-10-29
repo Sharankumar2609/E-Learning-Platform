@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 export default function QuizTaking() {
   const { quizId } = useParams();
   const navigate = useNavigate();
-  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const base = import.meta.env.VITE_API_URL || "https://backend.bluebeach-698d2239.centralindia.azurecontainerapps.io";
   const token = localStorage.getItem("token");
   
   const [quiz, setQuiz] = useState(null);
@@ -14,7 +14,7 @@ export default function QuizTaking() {
   const [answers, setAnswers] = useState({});
   const [timeLeft, setTimeLeft] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [score, setScore] = useState(null);
+  const [score, setScore] = useState(null);``
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

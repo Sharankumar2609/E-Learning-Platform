@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 
 export default function TeacherCourseManage() {
   const { id } = useParams();
-  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const base = import.meta.env.VITE_API_URL || "https://backend.bluebeach-698d2239.centralindia.azurecontainerapps.io";
   const token = localStorage.getItem("token");
   const [course, setCourse] = useState(null);
   const [videoFile, setVideoFile] = useState(null);

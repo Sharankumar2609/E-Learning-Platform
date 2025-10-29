@@ -6,7 +6,7 @@ export default function Courses() {
   const [courses, setCourses] = useState([]);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const [message, setMessage] = useState("");
-  const base = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const base = import.meta.env.VITE_API_URL || "https://backend.bluebeach-698d2239.centralindia.azurecontainerapps.io";
   const token = localStorage.getItem("token");
 
   useEffect(() => {

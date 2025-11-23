@@ -59,7 +59,7 @@ jobs:
         run: mv codeql-results.sarif backend/
 
       - name: Generate PDF Report
-        working-directory: ./backend   # 👈 added this line
+        working-directory: ./backend   
         run: |
           npm install jspdf
           node sarif-to-pdf.js
@@ -68,6 +68,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: CodeQL_PDF_Report
-          path: backend/CodeQL_Report.pdf   # 👈 adjust path here
+          path: backend/CodeQL_Report.pdf   
 
 
